@@ -15,14 +15,13 @@ class SignUpForm(UserCreationForm):
             'password1',
             'password2'
         )
-
     def clean(self):
-        """Verifico que las contraseñas sean iguales """
-        data = super().clean()
+        '''Verifico que las contaseñas sean iguales'''
+        data = super().clean() 
         password1=data['password1']
         password2=data['password2']
 
         if password1 != password2:
-            raise forms.ValidationError("Las contraseñas no coinciden")
+            raise forms.ValidationError('Las contraseñas no son iguales')
 
         return data

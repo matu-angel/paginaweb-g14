@@ -16,22 +16,24 @@ Including another URLconf
 #from django.urls import re_path as url
 from django.contrib import admin
 from django.urls import path
-from apps.usuarios_app import views as viewsUsers
-from apps.noticias_app import views as viewsNotice
-from apps.eventos_app import views 
-from django.conf.urls.static import static
-from django.conf import settings
-from django.contrib.auth.views import LoginView,LogoutView
-
+#from apps.blog_auth import views as viewsUsers
+from apps.noticias_app import views
+#from apps.eventos_app import views 
+#from django.conf.urls.static import static
+#from django.conf import settings
+#from django.contrib.auth.views import LoginView,LogoutView
+from django.conf.urls import *
+admin.autodiscover()
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('/nosotros', views.nosotros, name='nosotros'),
-    path('/noticias', views.noticias, name='noticias'),
-    path('comentarios/<int:id>', viewsNotice.commentAproved, name='comentAproved'),
-    path('/eventos', views.eventos, name='eventos'),
-    path('registro', viewsUsers.register, name='registro'),
-    path('login', LoginView.as_view(template_name='perfiles/login.html'), name='login'),
-    path('logout', LogoutView.as_view(template_name='perfiles/logout.html'), name='logout'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True) 
+    path('nosotros/', views.nosotros, name='nosotros'),
+    path('noticias/', views.noticias, name='noticias'),
+    path('eventos/', views.eventos, name='eventos'),
+    path('recursos/', views.recursos, name='recursos'),
+    #path("registrame/", views.formulario, name="registrarme"),
+    #path('iniciar_sesion/', views.noticias, name='iniciar_sesion'),
+
+] 
+#+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, show_indexes=True) 

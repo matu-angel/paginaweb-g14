@@ -4,9 +4,10 @@ from django.db.models.base import Model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+# Create your models here.
 class Profile(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    resume = models.CharField(max_length=300, blank=True)
+    resume = models.CharField(max_length=255, blank=True)
     usr_twitter = models.URLField(blank=True)
     usr_instagram = models.URLField(blank=True)
 

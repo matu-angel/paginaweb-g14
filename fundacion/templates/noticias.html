@@ -76,48 +76,91 @@
         </ul>        
     </header>
     <div class="container-fluid">
-        <section>
-    <article class="Noticia">
-    <h1 class="Titulo">{{ noticia.titulo }}</h1>
-    <div class="Contexto">
-    <div class="GenericoPlantilla">
-        <div class="GenericoPlantilla-img">
-        <div class="Card-Events-img">
-            <img src="{{MEDIA_URL}}/{{noticia.img}}" alt="{{ noticia.nombre }}">
+        <!-- Inicio Segmento noticias   -->
+        <div class="row">
+            <div class="col-md-4 offset-md-2">
+                <!-- Mostrar día del inmigrante -->
+                <img src= "static/img/inmigrante.jpg" class="img-fluid" alt="Esta imagen es una ilustración">
+            </div>
+            <div class="col-md-3" style="background-color:rgb(255, 245, 233)">
+                <!-- Párrafo día del inmigrante -->
+                <h4>Encuentro de descendientes Italianos</h4>
+                <h6>Día del Inmigrante Italiano</h6>
+                <p><small>
+                    Para conmemorar el día del inmigrante Italiano,
+                    la Fundacion Memorias de Nuestro Pueblo realizó
+                    un encuentro con familias descendientes.
+                    El agazajo se llevó a cabo el día Sábado 4 de Junio de 2022
+                    en el S.U.O.E.M Fontana.
+                    Se compartió un almuerzo con comida típica. Los descendientes se tomaron
+                    un momento para contar sobre sus familias y concerse entre sí.
+                    Al finalizar, se contó con la música de María Angélica Funes
+                    y al Alberto Bessone, que interpretaron varios temas en italiano.
+                </small>
+                </p>
+                <h6 "justify-content-center">Lunes 13 de Junio 2023</h6>
+                <!-- img src="static/img/fundaciónlogo.png" style="width:300px" height="300px" alt="Imagen del encuentro el día Sábado 4 de Junio de 2022 "-->        
+            </div>            
         </div>
-        <div>
-            <h6>Creado: {{ noticia.creado }}</h6>
-            <h6>Autor: {{ noticia.autor_id }}</h6>
+        <div class="b-example-divider"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 offset-md-2">
+                    <!-- Mostrar día del escritor -->
+                    <img src= "static/img/diaescritor.jpg" class="img-fluid" alt="Esta imagen es una ilustración">
+                </div>
+                <div class="col-md-3" style="background-color:rgb(255, 245, 233)">
+                    <!-- Párrafo día del escritor -->
+                    <h4>Día del escritor y la escritora</h4>
+                    <p id="Noticia2"><small>
+                        La Fundacion Memorias de Nuestro Pueblo organizó un encuentro 
+                        de escritoras y escritores de Fontana.
+                        Fue realizado en la sede de la Fundacion, el día Viernes 17 de Junio de 2022.
+                        Participaron Adriana Amarilla, Rossana Rapaccioli, Ricardo Sotelo, Fabio Núñes,
+                        Alcides Colman, Gabriela Ramírez, Fernanda Belek, Osmar Hipper.
+                        El "Día del Escritor" en la Argentina se celebra todos los 13 de Junio
+                        en honor de Leopoldo Lugones (1874-1938), un artísta que a través 
+                        de sus variadas obras liberó, sin quererlo, la vaguardia literaria 
+                        del modernismo a finales del siglo XIX.
+                        Fue Leopoldo Lugones, en 1928, el fundador y primer presidente 
+                        de la Sociedad Argentina de Escritores (SADE), la asociación civil 
+                        que tras su suicidio por tomar un vaso de whisky con cianuro en 1938, 
+                        declaró al 13 de Junio como el "Día del Escritor" en la Argentina.
+                        </small>
+                    </p>
+                </div>                
+            </div>
         </div>
+        <div class="b-example-divider"></div>
+        <div class="row">
+            <div class="col-md-4 offset-md-2">
+                <!-- Mostrar participación en la Bienal -->
+                <img src= "static/img/bienal1.jpg" class="img-fluid" alt="Esta imagen es una ilustración">
+            </div>
+            <div class="col-md-3" style="background-color:rgb(255, 245, 233)">
+                <!-- Párrafo participación en la bienal -->
+                <h4>Memorias de Fontana en la Bienal de Chaco 2022</h4>
+                <p id="Noticia3"><small>
+                    La Fundación Memoria de Nuestro Pueblo estuvo presente en la semana de la Bienal de las Escuturas
+                    realizado los especiales en vivo del programa de radio "Memorias de Fontana", desde el
+                    Domo del Centenario.
+                    Tuvimos la presencia de diferentes invitados para ser entrevistados como:
+                    <a href="#Miriam Garcia" target="_blank">Miriam García</a>
+                    Maciel, Juan Pablo Arias, Nestor Sosa y Paula Brites entre otros.
+                    </small>
+                </p>
+            </div>
+            <div class="col-md-2" style="background-color: white"></div>
         </div>
-        <div class="GenericoPlantilla-text">
-        <p> {{noticia.contenido}}</p>
+        <div class="b-example-divider"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center justify-content-md-between">
+                    <a href="hist_municipalidad.html" class="href">Historia de la municipalidad</a>                    
+                </p>
+            </div>
         </div>
     </div>
-    </div>
-    </article>
-<article class="Comentarios">
-    {% for comentario in comentarios %}
-    <div class="Comentario">
-        <p class="comentario-header">{{ comentario.autor}}<span class="Fecha"> {{ comentario.creado}}</span></p>
-        <p>{{ comentario.cuerpo_comentario}}</p>
-    </div>
-    {% endfor %}
-    {% if user.is_authenticated %}
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn_comentar">
-        Comentar
-        </button>
-    </form>
-    {% else %}
-    <div class="Comentario">
-    <p>
-        <a href="/login" class="Titulo">REGISTRATE para comentar</a>
-    </p>
-    </div>
-    </article>
                 
         <div class="row">
             <div class="col-md-12">

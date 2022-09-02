@@ -41,10 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #app agregadas
-    'apps.usuarios_app',
     'apps.noticias_app',
     'apps.eventos_app',
-     'ckeditor',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -126,8 +125,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-LOGIN_URL = '/inicia-sesion/'
-LOGIN_REDIRECT_URL = '/'
+#LOGIN_URL = '/inicia-sesion/'
+#LOGIN_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), 'static')),
